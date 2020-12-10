@@ -1,0 +1,166 @@
+<td-layout>
+  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:teradata" name="Firstname Lastname" email="firstname.lastname@company.com">
+    <mat-nav-list>
+      <a *ngFor="let item of routes" mat-list-item><mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+    </mat-nav-list>
+    <div td-navigation-drawer-menu>
+      <mat-nav-list>
+        <a *ngFor="let item of usermenu" mat-list-item><mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+      </mat-nav-list>
+    </div>
+  </td-navigation-drawer>
+  <td-layout-nav logo="assets:teradata" [toolbarTitle]="name" navigationRoute="/">
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+      <span flex></span>
+    </div>
+    <div>
+      <div class="bgc-blue-grey-800 pad-md mat-whiteframe-z1" layout="row" layout-align="center start">
+      <div flex="85">
+        <div layout="row">
+          <mat-icon svgIcon="assets:covalent" class="icon-lg push"></mat-icon>
+          <div>
+            <h1 class="tc-white mat-display-2 push-none">Welcome to our org</h1>
+            <p class="tc-white mat-subheading-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button mat-raised-button color="accent" class="text-upper">Join Group</button>
+            <button mat-raised-button class="text-upper push-left-sm">Follow</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div layout="row" layout-align="center start">
+      <div flex="85">
+        <div layout-gt-sm="row" tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
+          <div flex-gt-sm="60">
+            <mat-card>
+              <mat-card-title>Our People</mat-card-title>
+              <mat-card-subtitle>usage stats for our products</mat-card-subtitle>
+              <mat-divider></mat-divider>
+              <mat-card-content>
+                <mat-grid-list cols="3" rowHeight="180px" gutterSize="10px">
+                  <ng-template let-member let-last="last" let-index="index" ngFor [ngForOf]="members">
+                    <mat-grid-tile>
+                      <img alt="avatar" src="{{member.avatar}}">
+                      <mat-grid-tile-footer>
+                        <h3 mat-line>{{member.name}}</h3>
+                        <span mat-line>{{member.role}}</span>
+                        <a mat-icon-button href="mailto:{{member.role}}">
+                          <mat-icon>email</mat-icon>
+                        </a>
+                      </mat-grid-tile-footer>
+                    </mat-grid-tile>
+                  </ng-template>
+                </mat-grid-list>
+              </mat-card-content>
+              <mat-divider></mat-divider>
+              <mat-card-actions>
+                <button mat-button color="accent" class="text-upper">View More</button>
+              </mat-card-actions>
+            </mat-card>
+            <mat-card tdMediaToggle="gt-xs" [mediaClasses]="['push-top']">
+              <mat-card-title>Projects</mat-card-title>
+              <mat-card-subtitle>Organizational projects</mat-card-subtitle>
+              <mat-divider></mat-divider>
+              <mat-nav-list>
+                <ng-template let-project let-last="last" let-index="index" ngFor [ngForOf]="projects">
+                  <a mat-list-item href="{{project.link}}">
+                    <mat-icon [ngClass]="'bgc-' + project.color" matListAvatar class="tc-white">{{project.icon}}</mat-icon>
+                    <h3 matLine>{{project.name}}</h3>
+                    <h3 matLine>{{project.description}}</h3>
+                    <p matLine>{{project.status}}</p>
+                  </a>
+                  <mat-divider mat-inset *ngIf="!last"></mat-divider>
+                </ng-template>
+              </mat-nav-list>
+              <mat-divider></mat-divider>
+              <mat-card-actions>
+                <a mat-button color="accent" class="text-upper">
+                  <span>View More</span>
+                </a>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+          <div flex-gt-sm="40">
+            <mat-card>
+              <mat-card-title>Featured Content</mat-card-title>
+              <mat-card-subtitle>Areas of highlight and focus</mat-card-subtitle>
+              <mat-divider></mat-divider>
+              <mat-nav-list>
+                <ng-template let-feature let-last="last" let-index="index" ngFor [ngForOf]="featured">
+                  <a mat-list-item href="{{feature.link}}">
+                    <mat-icon matListAvatar>{{feature.icon}}</mat-icon>
+                    <h3 matLine>{{feature.name}}</h3>
+                    <h3 matLine>{{feature.description}}</h3>
+                  </a>
+                  <mat-divider mat-inset *ngIf="!last"></mat-divider>
+                </ng-template>
+              </mat-nav-list>
+              <mat-divider></mat-divider>
+              <mat-card-actions>
+                <a mat-button color="accent" class="text-upper">
+                  <span>View More</span>
+                </a>
+              </mat-card-actions>
+            </mat-card>
+            <mat-card>
+              <mat-card-title>Contact us</mat-card-title>
+              <mat-card-subtitle>We're always open to suggestions</mat-card-subtitle>
+              <mat-divider></mat-divider>
+              <mat-card-content>
+                <form>
+                  <div layout="row">
+                    <mat-form-field flex>
+                      <input matInput placeholder="Name" value="Sushi">
+                    </mat-form-field>
+                  </div>
+                  <div layout="row">
+                    <mat-form-field flex>
+                      <textarea matInput placeholder="Message" value="Sushi"></textarea>
+                    </mat-form-field>
+                  </div>
+                </form>
+              </mat-card-content>
+              <mat-divider></mat-divider>
+              <mat-card-actions>
+                <a mat-button color="accent" class="text-upper">
+                  <span>Submit</span>
+                </a>
+              </mat-card-actions>
+            </mat-card>
+            <mat-card tdMediaToggle="gt-xs" [mediaClasses]="['push-top']">
+              <mat-card-title>Upcoming Events</mat-card-title>
+              <mat-card-subtitle>Internal events supported by our org</mat-card-subtitle>
+              <mat-divider></mat-divider>
+              <mat-nav-list dense>
+                <ng-template let-item let-last="last" let-index="index" ngFor [ngForOf]="[0,1,2,3,4]">
+                  <a mat-list-item>
+                    <mat-icon matListAvatar>today</mat-icon>
+                    <h3 matLine>Event {{index}}</h3>
+                    <h4 matLine>event {{index}} description</h4>
+                    <p matLine>{{today | date}}</p>
+                  </a>
+                  <mat-divider mat-inset *ngIf="!last"></mat-divider>
+                </ng-template>
+              </mat-nav-list>
+              <mat-divider></mat-divider>
+              <mat-card-actions>
+                <a mat-button color="accent" class="text-upper">
+                  <span>View More</span>
+                </a>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+    <td-layout-footer>
+      <div layout="row" layout-align="start center">
+        <span class="mat-caption">Made with <mat-icon class="text-md">favorite</mat-icon> using <a href="http://getcovalent.com" class="text-nodecoration tc-blue-700">Covalent</a>, built on Angular v5 + Angular Material.</span>
+      </div>
+    </td-layout-footer>
+  </td-layout-nav>
+</td-layout>
